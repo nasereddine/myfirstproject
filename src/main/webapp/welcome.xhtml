@@ -10,9 +10,71 @@
 <h:head>
 </h:head>
 <h:body>
-	<h1>Hello #{userBean.user.firstName} #{userBean.user.lastName}</h1>
+	<h:form id="userForm">
 
-	
+		<h3 style="margin-top: 0">User informations</h3>
+		<p:spacer height="70px"/>
+		<p:accordionPanel>
+
+			<p:tab title="Global informations">
+
+				<h:panelGrid columns="2" cellpadding="10">
+					<h:outputLabel value="Id :" style="font-weight: bold;" />
+					<h:outputText value="#{x.u.id}" />
+
+					<h:outputLabel value="First name :" style="font-weight: bold;" />
+					<h:outputText value="#{x.u.firstName}" />
+
+					<h:outputLabel value="Last name :" style="font-weight: bold;" />
+					<h:outputText value="#{x.u.lastName}" />
+
+				</h:panelGrid>
+
+			</p:tab>
+
+			<p:tab title="Address">
+			<h:outputText value="#{x.u.address.countrie}-#{x.u.address.postalCode}-#{x.u.address.street}-#{x.u.address.department}" />
+
+			</p:tab>
+
+			<p:tab title="Cars list">
+				<p:dataTable var="t" value="#{x.u.cars}">
+					
+					<p:column headerText="Id" sortBy="#{t.id}">
+						<h:outputText value="#{t.id}" />
+					</p:column>
+					
+					<p:column headerText="Color">
+						<h:outputText value="#{t.color}" />
+					</p:column>
+					
+						<p:column headerText="Marque">
+						<h:outputText value="#{t.mark}" />
+					</p:column>
+					
+				<p:column headerText="Serial Number">
+						<h:outputText value="#{t.serialNumber}" />
+					</p:column>	
+
+					
+				</p:dataTable>
+			</p:tab>
+
+
+
+
+
+
+
+
+		</p:accordionPanel>
+
+
+
+	</h:form>
+ 
+   
+  
 
 </h:body>
 </html>

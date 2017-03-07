@@ -10,7 +10,7 @@
 <h:head>
 </h:head>
 <h:body>
-	<h1>Hello TBS</h1>
+	<h1>Hello TB</h1>
 
 	<h:form>
 	 
@@ -18,13 +18,13 @@
 	
 	 <h:panelGrid columns="2" cellpadding="5">
 	     <h:outputText value="Login : " />
-        <p:inputText id="login" value="#{userBean.user.login}" required="true" label="Login"/>
+        <p:inputText id="login" value="#{x.login}" required="true" label="Login"/>
 	 
         <h:outputText value="Password : " />
-        <p:password id="password" value="#{userBean.user.password}" required="true" label="Password"/>
+        <p:password id="password" value="#{x.password}" required="true" label="Password"/>
         
      
-       <p:commandButton value="Connect" update="msgs" actionListener="#{userBean.connect}" styleClass="ui-priority-primary" />
+       <p:commandButton value="Connect" update="msgs" actionListener="#{x.connect}" styleClass="ui-priority-primary" />
  
  
         </h:panelGrid>

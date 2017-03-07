@@ -16,47 +16,47 @@ import com.tbs.hello.entity.Address;
 import com.tbs.hello.entity.Car;
 import com.tbs.hello.entity.User;
 
-@ManagedBean(name="userBean")
+@ManagedBean(name="x")
 @SessionScoped
 public class UserMBean {
 	
-
+	
+	
+	
 	private static String PASSWORD_SIMPLE_USER="user";
 	private static String LOGIN_SIMPLE_USER="user";
 	private static String ERROR_PAGE="error.jsf";
 	private static String USER_PAGE="welcome.jsf";
 	
 	
+	private String login;
+	private String password;
 	
 	
-	public UserMBean(){
-		this.user = new User();
-	}
 	
-	private User user;
 	
 	
 	public void connect(){
 		
 		
 		
-      if(LOGIN_SIMPLE_USER.equals(this.user.getLogin()) && PASSWORD_SIMPLE_USER.equals(this.user.getPassword())){
+      if(LOGIN_SIMPLE_USER.equals(this.login) && PASSWORD_SIMPLE_USER.equals(this.password)){
     	  initUser();
     	  redirect(USER_PAGE);
 		}else{
 			redirect(ERROR_PAGE);
 		}
 		
-		
-		
 	}
 
+	private User u;
 	private void initUser() {
-		this.user.setDateOfBirth(new Date());
-		this.user.setFirstName("med");
-		this.user.setId(1l);
-		this.user.setLastName("ali");
-		this.user.setMail("med.ali@tbs.com");
+		this.u = new User();
+		this.u.setDateOfBirth(new Date());
+		this.u.setFirstName("med");
+		this.u.setId(1l);
+		this.u.setLastName("ali");
+		this.u.setMail("med.ali@tbs.com");
 		
 		Address address = new Address();
 		address.setId(12l);
@@ -65,7 +65,7 @@ public class UserMBean {
 		address.setStreet("EL mourouj 4");
 		address.setDepartment("Ben arous");
 		
-		this.user.setAddress(address);
+		this.u.setAddress(address);
 		
 		
 		List<Car> listCars = new ArrayList<Car>();
@@ -86,7 +86,7 @@ public class UserMBean {
 		listCars.add(bmw);
 		listCars.add(mercedes);
 		
-		this.user.setCars(listCars);
+		this.u.setCars(listCars);
 		
 		
 		
@@ -113,12 +113,28 @@ public class UserMBean {
 	}
 	
 
-	public User getUser() {
-		return user;
+	public User getU() {
+		return u;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setU(User user) {
+		this.u = user;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
